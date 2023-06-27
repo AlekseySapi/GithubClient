@@ -6,13 +6,16 @@ import com.gb.poplib.githubclient.ui.adapter.IUserItemView
 import com.gb.poplib.githubclient.ui.adapter.IUserListPresenter
 import com.gb.poplib.githubclient.data.GithubUser
 import com.gb.poplib.githubclient.data.GithubUserRepo
+import com.gb.poplib.githubclient.ui.IScreens
 import com.gb.poplib.githubclient.ui.adapter.IUserItemView
 import com.gb.poplib.githubclient.ui.adapter.IUserListPresenter
 import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
 
 class UsersPresenter(
-    val usersRepo: GithubUserRepo, val router: Router
+    val usersRepo: GithubUserRepo,
+    val router: Router,
+    val screens: IScreens
 ) : MvpPresenter<UsersView>() {
 
     class UserListPresenter : IUserListPresenter {
@@ -36,7 +39,8 @@ class UsersPresenter(
         loadData()
 
         userListPresenter.itemClickListener = { itemView ->
-            // TODO: переход на экран пользователя
+            val user = userListPresenter.users[itemView.itemPosition]
+            router.navigateTo(screens.user(user))
         }
     }
 
