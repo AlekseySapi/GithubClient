@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.gb.poplib.githubclient.data.GithubUser
-import com.gb.poplib.githubclient.domain.UserPresenter
-import com.gb.poplib.githubclient.domain.UserView
 import com.gb.poplib.githubclient.databinding.FragmentUserBinding
-import moxy.MvpAppCompatFragment
-import moxy.ktx.moxyPresenter
 
-class UserFragment() : MvpAppCompatFragment(), UserView {
+class UserFragment() : Fragment() {
 
     companion object {
         private const val CURRENT_USER = "current_data"
