@@ -2,13 +2,8 @@ package com.gb.poplib.githubclient.domain
 
 import com.gb.poplib.githubclient.data.GithubUser
 import com.gb.poplib.githubclient.data.GithubUserRepo
-import com.gb.poplib.githubclient.ui.adapter.IUserItemView
 import com.gb.poplib.githubclient.ui.adapter.IUserListPresenter
-import com.gb.poplib.githubclient.data.GithubUser
-import com.gb.poplib.githubclient.data.GithubUserRepo
 import com.gb.poplib.githubclient.ui.IScreens
-import com.gb.poplib.githubclient.ui.adapter.IUserItemView
-import com.gb.poplib.githubclient.ui.adapter.IUserListPresenter
 import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
 

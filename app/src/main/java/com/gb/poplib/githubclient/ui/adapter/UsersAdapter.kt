@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gb.poplib.githubclient.databinding.UserItemBinding
+import com.gb.poplib.githubclient.domain.IUserItemView
 
 class UsersAdapter(
     val presenter: IUserListPresenter
