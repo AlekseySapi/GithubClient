@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">GithubClient</string>
-
-    <string name="counter_one">Счетчик 1</string>
-    <string name="counter_two">Счетчик 2</string>
-    <string name="counter_three">Счетчик 3</string>
+    <string name="app_name">GitHub client</string>
+    <string name="counter_title_1">Counter 1</string>
+    <string name="counter_value_1">0</string>
+    <string name="counter_title_2">Counter 2</string>
+    <string name="counter_value_2">0</string>
+    <string name="counter_title_3">Counter 3</string>
+    <string name="counter_value_3">0</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
