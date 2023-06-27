@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Docs/GeekBrains/libs/GithubClient/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Docs/GeekBrains/libs/GithubClient/app/src/main/res/layout/fragment_user.xml" value="0.22826086956521738" />
         <entry key="..\:/Docs/GeekBrains/libs/GithubClient/app/src/main/res/layout/fragment_users.xml" value="0.1721311475409836" />
         <entry key="..\:/Docs/GeekBrains/libs/GithubClient/app/src/main/res/layout/user_item.xml" value="0.22826086956521738" />
       </map>
