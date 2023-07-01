@@ -2,17 +2,16 @@ package com.gb.poplib.githubclient.domain
 
 import com.gb.poplib.githubclient.data.GithubUser
 import com.gb.poplib.githubclient.data.GithubUserRepo
-import com.gb.poplib.githubclient.ui.adapter.IUserItemView
-import com.gb.poplib.githubclient.ui.adapter.IUserListPresenter
-import com.gb.poplib.githubclient.data.GithubUser
-import com.gb.poplib.githubclient.data.GithubUserRepo
-import com.gb.poplib.githubclient.ui.adapter.IUserItemView
-import com.gb.poplib.githubclient.ui.adapter.IUserListPresenter
+import com.gb.poplib.githubclient.ui.IScreens
 import com.github.terrakok.cicerone.Router
+import io.reactivex.rxjava3.core.Observer
+import io.reactivex.rxjava3.disposables.Disposable
 import moxy.MvpPresenter
 
 class UsersPresenter(
-    val usersRepo: GithubUserRepo, val router: Router
+    val usersRepo: GithubUserRepo,
+    val router: Router,
+    val screens: IScreens
 ) : MvpPresenter<UsersView>() {
 
     class UserListPresenter : IUserListPresenter {
@@ -36,14 +35,29 @@ class UsersPresenter(
         loadData()
 
         userListPresenter.itemClickListener = { itemView ->
-            // TODO: переход на экран пользователя
+            val user = userListPresenter.users[itemView.itemPosition]
+            router.navigateTo(screens.user(user))
         }
     }
 
     fun loadData() {
-        val users = usersRepo.getUsers()
-        userListPresenter.users.addAll(users)
-        viewState.updateList()
+        val usersObserver = object : Observer<GithubUser> {
+            var disposable: Disposable? = null
+
+            override fun onSubscribe(d: Disposable) {
+                disposable = d
+            }
+
+            override fun onNext(t: GithubUser) {
+                userListPresenter.users.add(t)
+            }
+
+            override fun onError(e: Throwable) {}
+
+            override fun onComplete() {}
+        }
+
+        usersRepo.getUsersAsync().subscribe(usersObserver)
     }
 
     fun backPressed(): Boolean {

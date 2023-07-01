@@ -1,3 +1,3 @@
-package com.gb.poplib.githubclient.ui.adapter
+package com.gb.poplib.githubclient.domain
 
 interface IUserListPresenter : IListPresenter<IUserItemView>

@@ -10,6 +10,7 @@ import com.gb.poplib.githubclient.domain.UsersPresenter
 import com.gb.poplib.githubclient.domain.UsersView
 import com.gb.poplib.githubclient.ui.App
 import com.gb.poplib.githubclient.ui.adapter.UsersAdapter
+import com.gb.poplib.githubclient.ui.AndroidScreens
 import com.gb.poplib.githubclient.databinding.FragmentUsersBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -21,7 +22,7 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
     }
 
     private val presenter: UsersPresenter by moxyPresenter {
-        UsersPresenter(GithubUserRepo(), App.instance.router)
+        UsersPresenter(GithubUserRepo(), App.instance.router, AndroidScreens())
     }
 
     private var adapter: UsersAdapter? = null

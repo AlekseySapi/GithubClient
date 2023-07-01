@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gb.poplib.githubclient.databinding.UserItemBinding
+import com.gb.poplib.githubclient.domain.IUserItemView
+import com.gb.poplib.githubclient.domain.IUserListPresenter
 
 class UsersAdapter(
     val presenter: IUserListPresenter
@@ -24,7 +26,9 @@ class UsersAdapter(
         return ViewHolder(
             UserItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         ).apply {
-            itemView.setOnClickListener { presenter.itemClickListener?.invoke(this) }
+            itemView.setOnClickListener {
+                presenter.itemClickListener?.invoke(this)
+            }
         }
     }
 
