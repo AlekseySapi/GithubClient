@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.gb.poplib.githubclient.domain.IImageLoader
+import com.gb.poplib.githubclient.domain.common.IImageLoader
 import com.gb.poplib.githubclient.domain.IUserItemView
-import com.gb.poplib.githubclient.domain.IUserListPresenter
 import com.gb.poplib.githubclient.databinding.UserItemBinding
+import com.gb.poplib.githubclient.domain.users.IUserListPresenter
 
 class UsersAdapter(
     val presenter: IUserListPresenter,

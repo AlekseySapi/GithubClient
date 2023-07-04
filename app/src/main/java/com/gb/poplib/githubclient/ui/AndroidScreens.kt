@@ -1,5 +1,6 @@
 package com.gb.poplib.githubclient.ui
 
+import com.gb.poplib.githubclient.data.GithubRepository
 import com.gb.poplib.githubclient.data.GithubUser
 import com.gb.poplib.githubclient.ui.pages.UserFragment
 import com.gb.poplib.githubclient.ui.pages.UsersFragment
@@ -11,5 +12,9 @@ class AndroidScreens(private val user: GithubUser? = null) : IScreens {
 
     override fun user(user: GithubUser?): Screen {
         return FragmentScreen { UserFragment.newInstance(user) }
+    }
+
+    override fun repository(repository: GithubRepository?): Screen {
+        return FragmentScreen { RepositoryFragment.newInstance(repository) }
     }
 }

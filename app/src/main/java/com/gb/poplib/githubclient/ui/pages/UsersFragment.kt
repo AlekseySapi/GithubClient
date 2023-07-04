@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gb.poplib.githubclient.data.ApiHolder
 import com.gb.poplib.githubclient.data.RetrofitGithubUsersRepo
 import com.gb.poplib.githubclient.domain.GlideImageLoader
-import com.gb.poplib.githubclient.domain.UsersPresenter
-import com.gb.poplib.githubclient.domain.UsersView
+import com.gb.poplib.githubclient.domain.users.UsersPresenter
+import com.gb.poplib.githubclient.domain.users.UsersView
 import com.gb.poplib.githubclient.ui.AndroidScreens
 import com.gb.poplib.githubclient.ui.App
 import com.gb.poplib.githubclient.ui.adapter.UsersAdapter

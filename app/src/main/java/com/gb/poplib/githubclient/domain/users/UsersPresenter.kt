@@ -1,8 +1,9 @@
-package com.gb.poplib.githubclient.domain
+package com.gb.poplib.githubclient.domain.users
 
 import android.text.method.TextKeyListener.clear
 import com.gb.poplib.githubclient.data.GithubUser
 import com.gb.poplib.githubclient.data.IGithubUsersRepo
+import com.gb.poplib.githubclient.domain.IUserItemView
 import com.gb.poplib.githubclient.ui.IScreens
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.core.Scheduler

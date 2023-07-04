@@ -2,11 +2,9 @@ package com.gb.poplib.githubclient.ui
 
 import android.os.Bundle
 import com.gb.poplib.githubclient.R
-import com.gb.poplib.githubclient.domain.MainPresenter
-import com.gb.poplib.githubclient.domain.MainView
+import com.gb.poplib.githubclient.domain.main.MainPresenter
+import com.gb.poplib.githubclient.domain.main.MainView
 import com.gb.poplib.githubclient.databinding.ActivityMainBinding
-import com.gb.poplib.githubclient.ui.AndroidScreens
-import com.gb.poplib.githubclient.ui.App
 import com.gb.poplib.githubclient.ui.pages.BackButtonListener
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.MvpAppCompatActivity
