@@ -5,13 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gb.poplib.githubclient.data.GithubUserRepo
+import com.gb.poplib.githubclient.data.ApiHolder
+import com.gb.poplib.githubclient.data.RetrofitGithubUsersRepo
+import com.gb.poplib.githubclient.domain.GlideImageLoader
 import com.gb.poplib.githubclient.domain.UsersPresenter
 import com.gb.poplib.githubclient.domain.UsersView
+import com.gb.poplib.githubclient.ui.AndroidScreens
 import com.gb.poplib.githubclient.ui.App
 import com.gb.poplib.githubclient.ui.adapter.UsersAdapter
-import com.gb.poplib.githubclient.ui.AndroidScreens
 import com.gb.poplib.githubclient.databinding.FragmentUsersBinding
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
@@ -22,7 +25,12 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
     }
 
     private val presenter: UsersPresenter by moxyPresenter {
-        UsersPresenter(GithubUserRepo(), App.instance.router, AndroidScreens())
+        UsersPresenter(
+            AndroidSchedulers.mainThread(),
+            RetrofitGithubUsersRepo(ApiHolder.api),
+            App.instance.router,
+            AndroidScreens()
+        )
     }
 
     private var adapter: UsersAdapter? = null
@@ -47,7 +55,7 @@ class UsersFragment : MvpAppCompatFragment(), UsersView, BackButtonListener {
     }
 
     override fun init() {
-        adapter = UsersAdapter(presenter.userListPresenter)
+        adapter = UsersAdapter(presenter.userListPresenter, GlideImageLoader())
 
         binding.users.layoutManager = LinearLayoutManager(context)
         binding.users.adapter = adapter
