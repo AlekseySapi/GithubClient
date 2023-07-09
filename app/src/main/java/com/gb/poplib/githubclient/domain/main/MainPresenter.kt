@@ -1,4 +1,4 @@
-package com.gb.poplib.githubclient.domain
+package com.gb.poplib.githubclient.domain.main
 
 import com.gb.poplib.githubclient.ui.IScreens
 import com.github.terrakok.cicerone.Router

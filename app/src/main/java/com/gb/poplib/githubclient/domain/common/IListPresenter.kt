@@ -1,4 +1,4 @@
-package com.gb.poplib.githubclient.domain
+package com.gb.poplib.githubclient.domain.common
 
 interface IListPresenter<V : IItemView> {
     var itemClickListener: ((V) -> Unit)?

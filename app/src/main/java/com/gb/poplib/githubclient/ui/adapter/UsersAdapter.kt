@@ -2,13 +2,16 @@ package com.gb.poplib.githubclient.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.gb.poplib.githubclient.databinding.UserItemBinding
+import com.gb.poplib.githubclient.domain.common.IImageLoader
 import com.gb.poplib.githubclient.domain.IUserItemView
-import com.gb.poplib.githubclient.domain.IUserListPresenter
+import com.gb.poplib.githubclient.databinding.UserItemBinding
+import com.gb.poplib.githubclient.domain.users.IUserListPresenter
 
 class UsersAdapter(
-    val presenter: IUserListPresenter
+    val presenter: IUserListPresenter,
+    val imageLoader: IImageLoader<ImageView>
 ) : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
 
     inner class ViewHolder(
@@ -17,6 +20,10 @@ class UsersAdapter(
 
         override fun setLogin(login: String) = with(binding) {
             userLogin.text = login
+        }
+
+        override fun loadAvatar(url: String) = with(binding) {
+            imageLoader.loadInto(url, binding.userAvatar)
         }
 
         override var itemPosition = -1
